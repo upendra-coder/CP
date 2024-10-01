@@ -10,18 +10,14 @@ while(t--) {
     ll n ;
     cin >> n ;
 
-    if(n%2 != 0){
-    cout << "1" << endl ;
-    continue ;}
-
-    int x = 0 ;
-    for(int i=1;i<n;i++) {
+    long long x = 1;
+    for(long long i=1;i<n;i++) {
         if(n%i != 0){
-        x = i ; 
+        x = i-1 ; 
         break ;}
     }
   
-    cout << x-1 << endl ;
+    cout << x << endl ;
 
 }
 
