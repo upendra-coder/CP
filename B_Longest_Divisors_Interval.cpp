@@ -10,8 +10,8 @@ while(t--) {
     ll n ;
     cin >> n ;
 
-    long long x = 1;
-    for(long long i=1;i<n;i++) {
+    long long x;
+    for(long long i=1; ;i++) {
         if(n%i != 0){
         x = i-1 ; 
         break ;}
