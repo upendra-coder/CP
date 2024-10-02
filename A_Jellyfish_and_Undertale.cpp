@@ -15,11 +15,12 @@ while(t--) {
     }
 
     sort(ans.begin(),ans.end()) ;
-    long long time = 1 ;
+    int time = 1 ;
     long long c = b ;
-    long long i = 0 ;
+    int i = 0 ;
     while(i < n){
-       if(c == 1){
+    
+       if(c == 2){
        c += min(a,c+ans[i]) ;
        i++ ;}
        c-- ;
