@@ -19,7 +19,6 @@ while(t--) {
     long long c = b ;
     long long i = 0 ;
     while(i < n){
-    
        if(c == 1){
        c += min(a,c+ans[i]) ;
        i++ ;}
