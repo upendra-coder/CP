@@ -15,16 +15,15 @@ while(t--) {
     }
 
     sort(ans.begin(),ans.end()) ;
-    int time = 1 ;
+    long long time = 0 ;
     long long c = b ;
-    int i = 0 ;
+    long long i = 0 ;
     while(i < n){
-    
-       if(c == 2){
-       c += min(a,c+ans[i]) ;
-       i++ ;}
-       c-- ;
-       time++ ;
+       if(c == 1)
+       c = min(a,c+ans[i++]) ;
+
+       time += c-1 ;
+       c = 1 ;
     }
 
     cout << time+1 << endl ;
