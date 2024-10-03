@@ -28,8 +28,9 @@ while(t--) {
 
   bool flag = true ;
   for(auto i:mp) {
-    if(i.second != 0)
+    if(i.second != 0){
     flag = false;
+    break ;}
   }
  
   if(flag)
