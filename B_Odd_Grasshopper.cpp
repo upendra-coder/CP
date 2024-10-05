@@ -11,10 +11,10 @@ while(t--) {
 
    
     int rem = jump%4 ;
-    int i = 4*(jump/4) + 1 ;
+    long long i = 4*(jump/4) + 1 ;
 
     while(rem--) {
-        cout << "ic" <<" " << ic << endl;
+        //cout << "ic" <<" " << ic << endl;
         if(ic % 2 == 0)
             ic -= i ;
         
