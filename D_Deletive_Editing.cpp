@@ -37,6 +37,9 @@ while(t--) {
     if(s[i] == t[j]) {
       mp[s[i]]-- ;   j++ ;
      }
+
+    else if(mp.find(s[i]) != mp.end() && mp[s[i]] == 0 && s[i] != t[j-1])
+    mp[s[i]]-- ;
   }
 
   bool flag = true ;
