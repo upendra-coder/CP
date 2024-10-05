@@ -16,7 +16,7 @@ while(t--) {
 
   int j = 0 ;
   for(int i=0;i<s.length();i++) {
-    if(mp.find(s[i]) != mp.end() && mp[s[i]] == 0 && s[i] == t[0]){
+    if(mp.find(s[i]) != mp.end() && s[i] == t[0] && mp[s[i]] == 0){
       mp.clear() ;
 
     for(int i=0;i<t.length();i++) {
@@ -29,7 +29,7 @@ while(t--) {
       if(s[i] == t[j-1])
       continue ;
 
-    if(mp.find(s[i]) != mp.end()){
+      else if(mp.find(s[i]) != mp.end()){
       mp[s[i]]-- ;
       }
     }
