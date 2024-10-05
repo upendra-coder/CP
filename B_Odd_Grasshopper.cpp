@@ -11,7 +11,7 @@ while(t--) {
 
    
     int rem = jump%4 ;
-    int i = 4*(jump/4) + 1 ;
+    long long i = 4*(jump/4) + 1 ;       //<---use long long instead of int
 
     while(rem--) {
         cout << "ic" <<" " << ic << endl;
