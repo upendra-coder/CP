@@ -17,7 +17,7 @@ while(t--) {
         cout << maxgcd << " " ;
 
         long long ans1 = a%maxgcd ;
-        long long ans2 = abs(maxgcd-a%maxgcd) ;
+        long long ans2 = maxgcd-a%maxgcd ;
         cout << min(ans1,ans2) << endl ;
     }
 }
