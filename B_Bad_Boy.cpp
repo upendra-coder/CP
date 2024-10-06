@@ -11,6 +11,5 @@ while(t--) {
 
     cout << n << " " << m << " " <<  1 << " " << 1 << endl ;
 }
-
     return 0;
 }
