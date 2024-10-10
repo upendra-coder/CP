@@ -30,7 +30,7 @@ while(t--) {
             long long window_size = end - start;
             
             if(window_size >= k) {
-                long long valid_subarrays = (window_size - k + 1) * (window_size - k + 2) / 2 ;
+                long long valid_subarrays = (window_size - k + 1) * (window_size - k + 2) / 2 ;        // this is basically (n)*(n+1)/2 ;
                 count += valid_subarrays;
             }
             
