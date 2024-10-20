@@ -10,7 +10,7 @@ while(t--) {
     long long a,b ;
     cin >> a >> b ;
 
-    if(a > b) 
+    if(a >= b) 
         cout << a << endl ;
 
     else {
