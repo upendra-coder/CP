@@ -17,8 +17,8 @@ while(t--) {
         long long slow = a ;
         long long fast = b ;
         
-        while(true) {
-          if(slow == fast) break ;
+        while(true){
+          if(slow >= fast) break ;
           if(slow == 0) break ;
           
           slow -= 1 ;
