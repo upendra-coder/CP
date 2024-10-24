@@ -2,34 +2,27 @@
 using namespace std ;
 
 int main() {
-int t ;
-cin >> t ;
+int t ; cin >> t ;
 
 while(t--) {
-    int n,q ;
-    cin >> n >> q ;
-    vector<int> ans(n) ;
+    long long n,q ;   cin >> n >> q ;
 
-    for(int i=0;i<n;i++) {
-        cin >> ans[i] ;
-    }
+    vector<long long> a(n+1) ;
+    vector<long long> pref(n+1) ;
+    long long sum = 0 ;
+      for(int i=1;i<=n;i++){
+            cin >> a[i] ;
+            sum += a[i] ;
+            pref[i] = sum ;
+        }
+
     while(q--) {
-        int l,r,k ;
-        cin >> l >> r >> k ;
+        long long l,r,k;
+        cin >> l >> r >> k;
+        long long ans = pref[n]-(pref[r]-pref[l-1]) + k*(r-l+1);
 
-        int sum = 0 ;
-        for(int i=0;i<n;i++){
-        if(i>=l-1 && i <= r-1)
-        sum += k ;
-        
-        else
-        sum += ans[i] ;
-    }
-        if(sum % 2 != 0)
-        cout << "YES" << endl ;
-
-        else 
-        cout << "NO" << endl ;
+        if(ans % 2 == 1) cout << "YES" << endl ;
+        else cout << "NO" << endl ;
     }
 }
 
