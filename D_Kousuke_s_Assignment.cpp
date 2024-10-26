@@ -1,30 +1,30 @@
 #include <bits/stdc++.h>
-using namespace std ;
+using namespace std;
 
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int t ; cin >> t ;
+    int t; cin >> t;
 
     while(t--) {
-        int n ; cin >> n ;
+        int n; cin >> n;
         vector<int> a(n);
         for(int i = 0; i < n; i++)
             cin >> a[i];
 
-        unordered_map<int, int> mp;
-        mp[0] = 1;
-        int prefixsum = 0;
+        set<long long> st; 
+        st.insert(0);
+        long long prefixsum = 0;
         int cnt = 0;
 
         for(int i = 0; i < n; i++) {
             prefixsum += a[i];
-            if(mp[prefixsum]) {
+            if(st.count(prefixsum)) {
                 cnt++;
-                mp.clear();
-                mp[0] = 1;
-                prefixsum = 0;
+                st.clear();
+                st.insert(0); 
+                prefixsum = 0;  
             }
-            else mp[prefixsum]++;
+            st.insert(prefixsum);  
         }
         cout << cnt << endl;
     }
