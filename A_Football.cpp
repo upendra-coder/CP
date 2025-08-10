@@ -2,25 +2,27 @@
 using namespace std;
 
 int main(){
-string s;  cin >> s;
-int count_0 = 0;
-int count_1 = 0;
+int n;  cin >> n;
+vector<string> str(n);
+for(int i=0;i<n;i++)cin >> str[i];
 
-for(int i = 0; i < s.size(); i++){
-        if(s[i] == '0'){
-            count_0++;
-            count_1 = 0;
-        } else {
-            count_1++;
-            count_0 = 0;
-        }
+int tm1 = 0, tm2 = 0;
+unordered_map<string,int> mp;
+for(int i=0;i<n;i++){
+    mp[str[i]]++;
+}
 
-        if(count_0 == 7 || count_1 == 7){
-            cout << "YES" << endl;
-            return 0;
+string ans = "";
+    int maxFreq = 0;
+
+    for(auto &it : mp){
+        if(it.second > maxFreq){
+            maxFreq = it.second;
+            ans = it.first;
         }
     }
 
- cout << "NO" << endl;
+    cout << ans << endl;
+
     return 0;
 }
