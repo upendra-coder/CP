@@ -1,60 +1,40 @@
-#include <bits/stdc++.h>
-using namespace std ;
+k + ceil((k*(y+1)-1)/(x-1))using namespace std;
 
 int main() {
-int t;
-cin >> t ;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-while(t--) {
-    int n , p ;
-    cin >> n >> p ;
+    int t;
+    cin >> t;
+    while (t--) {
+        long long n, p;
+        cin >> n >> p;
 
-    vector<int> a(n) ;   vector<int> b(n) ;
-    for(int i=0;i<n;i++){
-        cin >> a[i] ;
-        cin >> b[i] ;
+        vector<long long> a(n), b(n);
+        for (int i = 0; i < n; i++) cin >> a[i];
+        for (int i = 0; i < n; i++) cin >> b[i];
+
+        vector<pair<long long, long long>> arr(n);
+        for (int i = 0; i < n; i++) arr[i] = {b[i], a[i]};
+        sort(arr.begin(), arr.end());  
+
+        long long remaining = n - 1; 
+        long long cost = p;          
+
+        for (int i = 0; i < n && remaining > 0; i++) {
+            long long share_cost = arr[i].first;
+            long long capacity = arr[i].second;
+
+            if (share_cost >= p) break;
+
+            long long can_share = min(capacity, remaining);
+            cost += can_share * share_cost;
+            remaining -= can_share;
+        }
+
+        cost += remaining * p;
+
+        cout << cost << endl;
     }
-
-    vector<pair<int, int>> people(n);
-        for(int i = 0; i < n; i++) {
-            people[i].first = b[i] ;
-            people[i].second = a[i] ;
-        }
-        sort(people.begin(), people.end());
-
-    int people_remaining = n ;
-    int cost = 0 ;
-    int people_share = 0 ;
-    int prev_cost = 0 ;
-
-        for(auto it : people) {
-        if(people_remaining == n){
-            cost += p ;
-            people_share = it.second  ;
-            people_remaining-- ;
-            prev_cost = it.first ;
-        }
-
-        else{
-            if(it.first >= p && prev_cost >= p) {
-               cost += p ;    
-               people_remaining-- ;  continue ;
-            }
-
-            if(people_share == 1) {
-                cost += prev_cost ;
-                prev_cost = it.first ;
-                people_share = it.second ;
-            }
-
-            else{
-            people_share-- ;
-            cost += prev_cost ;
-            }
-            people_remaining-- ;
-        }
-    }
-    cout << cost << endl ;
-}
-    return 0 ;
+    return 0;
 }
